@@ -6,4 +6,4 @@ class HouseConfig(AppConfig):
     name = 'house'
    
     def ready(self):
-        import auth_api.signals
+        import house.signals
