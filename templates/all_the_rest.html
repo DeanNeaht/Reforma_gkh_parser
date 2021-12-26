@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}All the rest{% endblock %}
+{% block content %}
+<div>
+<h1>Found objects statistics:</h1>
+    <table style="width:100%">
+        <tr>
+            <th>Total</th>
+            <th>Found</th>
+            <th>Not Found</th>
+        </tr>
+        <tr>
+            <th>{{ count_found.all }}</th>
+            <th>{{ count_found.find }}</th>
+            <th>{{ count_found.not_find }}</th>
+        </tr>
+    </table>
+    <p>
+<div>
+
+    <h1>The number of objects with the material of load-bearing walls brick for each region:</h1>
+    <table style="width:100%">
+        <tr>
+            <th>Region</th>
+            <th>Quantity</th>
+        </tr>
+    {% for region in count_bricks %}
+        {% for region_name, count in region.items %}
+        <tr>
+            <th>{{ region_name }}</th>
+            <th>{{ count }}</th>
+        </tr>
+        {% endfor %}
+    {% endfor %}
+    </table>
+    </div>
+</p>
+<p>
+    <div>
+    <h1>Maximum number of floors for each bearing wall material in each city:</h1>
+    <table style="width:100%">
+        <tr>
+            <th>City</th>
+            <th>Material</th>
+            <th>Max floors</th>
+        </tr>
+        {% for city in max_floors %}
+            {% for city_name, materials in city.items %}
+                {% for material, max_floors in materials.items %}
+                    <tr>
+                        <th>{{ city_name }}</th>
+                        <th>{{ material.material_type }}</th>
+                        <th>{{ max_floors }}</th>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        {% endfor %}
+    </table>
+</div>
+</p>
+</div>
+{% endblock %}
