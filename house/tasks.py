@@ -1,5 +1,5 @@
 from celery import shared_task
-from models import House, LoadBearingWallMaterial
+from house.models import House, LoadBearingWallMaterial
 from house.services.parser import Parser
 from selenium.common.exceptions import ElementNotInteractableException, NoSuchElementException
 

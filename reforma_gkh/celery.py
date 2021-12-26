@@ -9,7 +9,7 @@ env = Env()
 env.read_env()
 
 # set the default Django settings module for the 'celery' program.
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'parser.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'reforma_gkh.settings')
 
 app = Celery(settings.CELERY_APP)
 
